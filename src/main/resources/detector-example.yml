@@ -1,0 +1,26 @@
+version: v1
+config:
+  #if restart more than xx times in one day,email
+  emailWhenRestartOneDay: 5
+  emailAfterFail: false
+  emailAfterRestart: false
+  #after restart for how many ms,Detector begin to detect it again
+  awaitStart: 3000
+  emailList: aa@asens.cn,bb@asens.cn
+  #aliyun email is free for 200 per day
+  aliyunEmailKey: your_key
+  aliyunEmailSecret: your_value
+
+app:
+  name1:
+    hostAndPort: localhost:8080
+    failMoreThan: 10
+    timeout: 5000
+    #execute bash or sh -c /usr/lib/restart.sh
+    cmd: 'echo "need restart 8080"'
+  name2:
+    hostAndPort: localhost:8081
+    failMoreThan: 10
+    timeout: 5000
+    #execute bash or sh -c /usr/lib/restart.sh
+    cmd: 'echo "need restart 8081"'
